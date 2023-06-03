@@ -1,0 +1,33 @@
+@use '../../Utils/utils' as util;
+
+.SidebarContainer{
+    background-color: util.$purple-800;
+    ul {  
+        list-style-type: none;  
+        font-weight: bold;  
+        font-size: 1rem;
+        font-family: util.$font-stack;
+        padding: 0;
+        margin: 0;
+
+        li{
+            color: util.$purple-100;
+            text-align: center;
+
+            p{
+                padding: 4px;
+                transition: all 500ms;
+            }
+            p:hover{
+                font-size:25px;
+                font-size-adjust: 1rem;
+            }
+
+            p:active{
+                color:util.$purple-950;
+            }
+        }
+
+    } 
+}
+

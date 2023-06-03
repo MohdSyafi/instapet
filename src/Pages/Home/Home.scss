@@ -1,0 +1,14 @@
+@use '../../Utils/utils' as util;
+
+.PageContainer{
+    height: 100%;
+    background-color: util.$purple-950;
+    @include util.display-flex(row);
+    div.SidebarContainer{
+        flex: 1;
+    }
+
+    div.HomeContainer{
+        flex: 9;
+    }
+}

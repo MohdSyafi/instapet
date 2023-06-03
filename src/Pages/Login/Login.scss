@@ -1,0 +1,76 @@
+
+@use '../../Utils/utils' as util;
+
+::-ms-reveal {
+    filter: invert(100%);
+  }
+
+input:focus {
+    outline: none !important;
+    border:1px solid util.$purple-200;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.SubmitBtn:active {
+  background-color: util.$purple-800;
+  transform: translateY(4px);
+}
+
+.AppContainer {
+    background-color: util.$purple-950;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    @include util.display-flex;
+    @include util.flex-center;
+
+    div.LoginContainer {
+
+        @include util.display-flex;
+        background-color: util.$purple-800;
+        width: 20vw;
+        border-radius: util.$round-radius;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 3rem;
+        font-family: util.$font-stack;
+
+        label{
+            color: util.$purple-100;
+            font-weight:bold;
+
+        }
+        input{
+            background-color: util.$purple-950;
+            font-family: util.$font-stack;
+            border-radius: util.$round-radius;
+            height: 2rem;
+            border: none;
+            color: util.$purple-100;
+            padding: 0.8rem;
+        }
+
+        div{
+
+            display: grid;
+
+            input.SubmitBtn{
+                text-align: center;
+                justify-self: end;
+                background-color: util.$purple-300;
+                color: util.$purple-950;
+                border-radius: util.$round-radius;
+                border: none;
+                height: 2rem;
+                font-weight: bold;
+                margin-top: 0.8rem;
+                font-size: medium;
+                width: 6rem;
+                height: 2.5rem;
+            }
+        }
+
+    }
+}
+
+
