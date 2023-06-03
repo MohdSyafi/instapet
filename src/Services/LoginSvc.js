@@ -7,14 +7,9 @@ const LoginSvc = (userName,password) => {
         return account ? true : false;
     };
   
-    const win = () =>{     
-
-    }
   
     return {
-        authenticateUser,
-      win
-
+        authenticateUser
     };
   
   };

@@ -1,0 +1,92 @@
+@use '../../Utils/utils' as util;
+
+@mixin footerPadding(){
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+div.PostContainer{
+    height: 727px;
+    width: 470px;
+    border-bottom: 0.5px solid util.$purple-600 ;
+    min-width: 470px;
+    font-family: util.$font-stack;
+
+    div.postOwner{
+        @include footerPadding;
+        @include util.display-flex("row");
+
+        height: 56px ;
+        gap:16px;
+        font-size: 20px;
+        font-weight: bold;
+
+        img{
+            height: 36px;
+            width: 36px;
+            border-radius: 36px;
+            align-self: center
+        }
+
+        div{
+            @include util.display-flex("row");
+            @include util.flex-center;
+        }
+
+    }
+
+    div.postImg{
+        height: 468px;
+        width: 468px;
+
+        img{
+            object-fit: cover;
+            height: 468px;
+            width: 468px;
+        }
+    }
+
+    div.postFooter{
+        min-height: 201px;
+        @include util.display-flex;
+        align-content: space-evenly;
+
+        div.interactBar{
+           
+            @include util.display-flex("row");
+            @include footerPadding;
+        
+            gap:24px;       
+            align-items: center;
+            flex: 1;
+            img{
+                height: 24px;
+                color: util.$purple-100;
+            }
+
+        }
+    
+        div.likeCount{
+            @include footerPadding;
+            font-weight: bold;
+            flex: 1;
+        }
+    
+        div.postDesc{
+            @include footerPadding;
+            font-size: 14px;
+            flex: 2;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            
+        }
+    
+        div.comments{
+            @include footerPadding;
+            font-size: 14px;
+            flex: 1;
+        }
+    }
+
+}
