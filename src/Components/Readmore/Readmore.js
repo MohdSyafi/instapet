@@ -36,7 +36,7 @@ function Readmore({ text }) {
                         <span
                             className="morelessButton"
                             onClick={showMore}>
-                            {toggleMoreState ? "...less" : "...more"}
+                            {toggleMoreState ? "...hide" : "...more"}
                         </span>
                     )
                 }

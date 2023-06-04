@@ -9,14 +9,21 @@ import shareIcon from "../../Assets/Icons/share.svg";
 import bookmarkIcon from "../../Assets/Icons/bookmark.svg";
 import Readmore from "../Readmore/Readmore";
 import Comment from "../Comment/Comment";
+import CreateComment from "../CreateComment/CreateComment";
 import {useState} from "react"
 
 function Post(p) {
     const [toggleLike, settoggleLike] = useState(false);
+    const [toggleCreateCmtModal, settoggleCreateCmtModal] = useState(false);
 
     function likePost(){
 
         settoggleLike(!toggleLike);
+    }
+
+    
+    function toggleCreateCommentModal(){
+        settoggleCreateCmtModal(!toggleCreateCmtModal);
     }
 
     return (
@@ -33,7 +40,7 @@ function Post(p) {
             <div className="postFooter">
                 <div className="interactBar">
                     <img onClick={likePost} alt="like" src={toggleLike ? heart_liked :heart_default}></img>
-                    <img alt="comment" src={commentIcon}></img>
+                    <img onClick={toggleCreateCommentModal} alt="comment" src={commentIcon}></img>
                     <img alt="share" src={shareIcon}></img>
                     <img alt="bookmark" src={bookmarkIcon}></img>
                 </div>
@@ -48,6 +55,8 @@ function Post(p) {
                     <Comment postId = {p.data.postId} username={p.data.username}/>
                 </div>
             </div>
+
+            <CreateComment open={toggleCreateCmtModal} toggleCreateCommentModal={toggleCreateCommentModal} post={p.data}/>
         </div>
     );
 }

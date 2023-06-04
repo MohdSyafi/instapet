@@ -16,7 +16,7 @@ function Sidebar() {
             setauthenticated(false);
             navigate("/login");
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        // esdivnt-disable-next-divne react-hooks/exhaustive-deps
     }, [authenticated]);
 
     const Logout = () => {
@@ -27,36 +27,36 @@ function Sidebar() {
     return (
       
         <div className="SidebarContainer">
-            <ul>
-                <li>
+            <div>
+                <div>
                     <img alt="" />
                     <Link to="/home"> <p className="sidebarText">Home</p></Link>
-                </li>
-                <li>
+                </div>
+                <div>
                     <img alt="" />
                     <Link to="/search"> <p className="sidebarText">Search</p></Link>
-                </li>
-                <li>
+                </div>
+                <div>
                     <img alt="" />
                     <Link to="/explore"> <p className="sidebarText">Explore</p></Link>
-                </li>
-                <li>
+                </div>
+                <div>
                     <img alt="" />
                     <Link to="/create"> <p className="sidebarText">Create</p></Link>
-                </li>
-                <li>
+                </div>
+                <div>
                     <img alt="" />
                     <Link to="/notification"> <p className="sidebarText">Notifications</p></Link>
-                </li>
-                <li>
+                </div>
+                <div>
                     <img alt="" />
                     <Link to="/profile"> <p className="sidebarText">Profile</p></Link>
-                </li>
-                <li>
+                </div>
+                <div>
                     <img alt="" />
-                    <p onClick={Logout} className="sidebarText">Logout</p>
-                </li>
-            </ul>
+                    <p onCdivck={Logout} className="sidebarText">Logout</p>
+                </div>
+            </div>
         </div>
      
 

@@ -1,19 +1,14 @@
 @use '../../Utils/utils' as util;
 
-@mixin footerPadding(){
-    padding-left: 24px;
-    padding-right: 24px;
-}
-
 div.PostContainer{
     min-height: 727px;
     width: 470px;
     border-bottom: 0.5px solid util.$purple-600 ;
     min-width: 470px;
     font-family: util.$font-stack;
-
+    padding-left: 5px;
+    
     div.postOwner{
-        @include footerPadding;
         @include util.display-flex("row");
 
         height: 56px ;
@@ -54,8 +49,6 @@ div.PostContainer{
         div.interactBar{
            
             @include util.display-flex("row");
-            @include footerPadding;
-        
             gap:24px;       
             align-items: center;
             flex: 1;
@@ -76,13 +69,11 @@ div.PostContainer{
         }
     
         div.likeCount{
-            @include footerPadding;
             font-size: 16px;
             flex: 1;
         }
     
         div.postDesc{
-            @include footerPadding;
             font-size: 12px;
             flex: 2;
             font-style: italic;
@@ -91,7 +82,6 @@ div.PostContainer{
         }
     
         div.comments{
-            @include footerPadding;
             font-size: 12px;
             flex: 1;
             color: util.$purple-200;

@@ -1,0 +1,69 @@
+@use '../../Utils/utils' as util;
+
+.CreateCommentModal{
+    @include util.display-flex;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+
+    .modalCloseBtn{
+        align-self: flex-end;
+        margin-right: 24px;
+        margin-top: 24px;
+        height: 42px;
+        width: 42px;
+    }
+
+    .CreateCommentContainer{
+        height: 80vh;
+        width: 80vw;
+        background-color: util.$purple-900;
+        position: relative;
+        margin: auto;
+        padding: 0;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+        @include util.display-flex(row);
+
+        div.postImg{
+            height: 100%;
+            width: 50%;
+    
+            img{
+                object-fit: cover;
+                height: 100%;
+                width: 100%;
+            }
+        } 
+        
+        div.post{
+            height: 100%;
+            width: 50%;
+            @include util.display-flex;
+
+
+            div.postDetail{
+                height: 50%;
+                border-bottom: 0.5px solid util.$purple-300 ;
+            }
+
+            div.postComment{
+                height: 50%;
+            }
+        }
+    }
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+  }
