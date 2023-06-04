@@ -1,13 +1,23 @@
 import "./Post.scss";
-import placeholderPic from "../../Images/profilePic.png";
+import placeholderPic from "../../Assets/Images/profilePic.png";
 import catPic from "../../Assets/Images/catPic.jpg";
 import dogPic from "../../Assets/Images/dogPic.jpeg";
-import likeIcon from "../../Assets/Icons/heart.svg";
+import heart_default from "../../Assets/Icons/heart.svg";
+import heart_liked from "../../Assets/Icons/heart-liked.svg";
 import commentIcon from "../../Assets/Icons/message-square.svg";
 import shareIcon from "../../Assets/Icons/share.svg";
 import bookmarkIcon from "../../Assets/Icons/bookmark.svg";
+import Readmore from "../Readmore/Readmore";
+import Comment from "../Comment/Comment";
+import {useState} from "react"
 
 function Post(p) {
+    const [toggleLike, settoggleLike] = useState(false);
+
+    function likePost(){
+
+        settoggleLike(!toggleLike);
+    }
 
     return (
         <div className="PostContainer">
@@ -22,7 +32,7 @@ function Post(p) {
             </div>
             <div className="postFooter">
                 <div className="interactBar">
-                    <img alt="like" src={likeIcon}></img>
+                    <img onClick={likePost} alt="like" src={toggleLike ? heart_liked :heart_default}></img>
                     <img alt="comment" src={commentIcon}></img>
                     <img alt="share" src={shareIcon}></img>
                     <img alt="bookmark" src={bookmarkIcon}></img>
@@ -31,10 +41,11 @@ function Post(p) {
                     <span>{p.data.likes} likes</span>
                 </div>
                 <div className="postDesc">
-                     {p.data.desc} 
+                    <Readmore text={p.data.desc}/>
+                    
                 </div>
                 <div className="comments">
-                    read comments
+                    <Comment postId = {p.data.postId} username={p.data.username}/>
                 </div>
             </div>
         </div>

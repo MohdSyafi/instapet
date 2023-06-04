@@ -6,7 +6,7 @@
 }
 
 div.PostContainer{
-    height: 727px;
+    min-height: 727px;
     width: 470px;
     border-bottom: 0.5px solid util.$purple-600 ;
     min-width: 470px;
@@ -18,8 +18,7 @@ div.PostContainer{
 
         height: 56px ;
         gap:16px;
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 16px;
 
         img{
             height: 36px;
@@ -37,20 +36,21 @@ div.PostContainer{
 
     div.postImg{
         height: 468px;
-        width: 468px;
+        width: 470px;
 
         img{
             object-fit: cover;
             height: 468px;
-            width: 468px;
+            width: 470px;
         }
     }
 
     div.postFooter{
         min-height: 201px;
         @include util.display-flex;
-        align-content: space-evenly;
-
+        gap:8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
         div.interactBar{
            
             @include util.display-flex("row");
@@ -61,31 +61,40 @@ div.PostContainer{
             flex: 1;
             img{
                 height: 24px;
-                color: util.$purple-100;
+                color: util.$purple-200;
+                transition-duration: 500ms;
+            }
+
+            img:hover{
+                transform: scale(1.5);
+            }
+
+            img:active{
+                transform: scale(0.5);
             }
 
         }
     
         div.likeCount{
             @include footerPadding;
-            font-weight: bold;
+            font-size: 16px;
             flex: 1;
         }
     
         div.postDesc{
             @include footerPadding;
-            font-size: 14px;
+            font-size: 12px;
             flex: 2;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
+            font-style: italic;
+            color: util.$purple-200;
             
         }
     
         div.comments{
             @include footerPadding;
-            font-size: 14px;
+            font-size: 12px;
             flex: 1;
+            color: util.$purple-200;
         }
     }
 

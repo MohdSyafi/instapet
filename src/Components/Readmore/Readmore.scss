@@ -1,0 +1,6 @@
+@use '../../Utils/utils' as util;
+
+.morelessButton:hover{
+    color: util.$purple-400;
+    cursor: pointer;
+}
