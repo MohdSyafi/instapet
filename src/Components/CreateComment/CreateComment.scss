@@ -1,18 +1,8 @@
 @use '../../Utils/utils' as util;
 
 .CreateCommentModal{
-    @include util.display-flex;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
-    justify-content: center;
-    align-items: center;
+
+    @include util.modal-outer-div;
 
     .modalCloseBtn{
         align-self: flex-end;
@@ -26,12 +16,7 @@
         height: 80vh;
         width: 80vw;
         background-color: util.$purple-950;
-        position: relative;
-        margin: auto;
-        padding: 0;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-        animation-name: animatetop;
-        animation-duration: 0.4s;
+        @include util.modal-inner-div;
         @include util.display-flex(row);
 
         div.postImg{
@@ -49,16 +34,16 @@
             height: 100%;
             width: 50%;
             @include util.display-flex;
-
+            justify-content: space-between;
 
             div.postDetail{
-
+                flex: 1;
                 max-height: 50%;
                 border-bottom: 0.5px solid util.$purple-300 ;
                 padding-left: 24px;
                 padding-right: 24px;
                 padding-top: 24px;
-
+            
                 div.postOwner{
                     height: 15%;
                     padding-bottom: 24px;
@@ -74,19 +59,19 @@
             }
 
             div.postComments{
-                height: 50%;
+                max-height: 50%;
+                @include util.display-flex;
+                flex: 1;
                 div.CommentsSection{
                     @include util.display-flex;
-                    gap:8px;
                     overflow: scroll;
                     overflow-x: hidden;
                     height: 70%;
                     padding-left: 24px;
                     padding-right: 24px;
-                    padding-top: 24px;
+                    padding-top: 18px;
                     div.CommentContainer{
                         @include util.display-flex("row");
-                        gap:8px;
                 
                         .cmtUsr{
                             font-weight:900;
@@ -99,20 +84,18 @@
                     border-top: 0.5px solid util.$purple-300 ;
                     align-items: center;
                     justify-content: left;
-                    padding-top: 12px;
                     padding-left: 24px;
                     padding-right: 24px;
                     gap: 12px;
+                    height: 20%;
                     input{
                         background-color: util.$purple-700;
                         font-family: util.$font-stack;
                         border-radius: util.$round-radius;
-                        height: 90%;
                         border: none;
                         color: util.$purple-100;
-                        padding: 0.8rem;
                         text-align: center;
-                        
+                        padding: 12px;
                     }
 
                     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -142,7 +125,4 @@
     }
 }
 
-@keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
-  }
+

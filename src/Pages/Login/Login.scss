@@ -27,21 +27,27 @@ input:focus {
     div.LoginContainer {
 
         @include util.display-flex;
-        background-color: util.$purple-800;
         width: 20vw;
         border-radius: util.$round-radius;
         justify-content: center;
         gap: 0.5rem;
-        padding: 3rem;
+        padding: 36px;
         font-family: util.$font-stack;
+        min-width: 370px;
 
+        h1{
+            font-style: italic;
+            color: util.$purple-100;
+            font-family: util.$font-stack-special;
+            text-align: center;
+        }
         label{
             color: util.$purple-100;
-            font-weight:bold;
+         
 
         }
         input{
-            background-color: util.$purple-950;
+            background-color: util.$purple-700;
             font-family: util.$font-stack;
             border-radius: util.$round-radius;
             height: 2rem;
@@ -57,19 +63,33 @@ input:focus {
             input.SubmitBtn{
                 text-align: center;
                 justify-self: end;
-                background-color: util.$purple-300;
-                color: util.$purple-950;
+                background-color: util.$purple-700;
+                color: util.$purple-100;
                 border-radius: util.$round-radius;
                 border: none;
                 height: 2rem;
-                font-weight: bold;
                 margin-top: 0.8rem;
                 font-size: medium;
                 width: 6rem;
                 height: 2.5rem;
+                padding: 0px;
             }
         }
 
+        span{
+            color: util.$purple-100;
+
+            span.signupLink{
+                font-style: italic;
+                color: util.$purple-300;
+            }
+
+            span.signupLink:hover{
+                text-decoration: underline;
+                color: util.$purple-100;
+                cursor: pointer;
+            }
+        }
     }
 }
 

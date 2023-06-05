@@ -7,6 +7,7 @@ import heart_liked from "../../Assets/Icons/heart-liked.svg";
 import commentIcon from "../../Assets/Icons/message-square.svg";
 import shareIcon from "../../Assets/Icons/share.svg";
 import bookmarkIcon from "../../Assets/Icons/bookmark.svg";
+import bookmarkedIcon from "../../Assets/Icons/bookmark-selected.svg";
 import Readmore from "../Readmore/Readmore";
 import Comment from "../Comment/Comment";
 import CreateComment from "../CreateComment/CreateComment";
@@ -14,6 +15,7 @@ import {useState} from "react"
 
 function Post(p) {
     const [toggleLike, settoggleLike] = useState(false);
+    const [toggleBookmark, settoggleBookmark] = useState(false);
     const [toggleCreateCmtModal, settoggleCreateCmtModal] = useState(false);
 
     function likePost(){
@@ -26,6 +28,10 @@ function Post(p) {
         settoggleCreateCmtModal(!toggleCreateCmtModal);
     }
 
+    function bookmarkPost(){
+        settoggleBookmark(!toggleBookmark);        
+    }
+    
     return (
         <div className="PostContainer">
             <div className="postOwner">
@@ -42,7 +48,7 @@ function Post(p) {
                     <img onClick={likePost} alt="like" src={toggleLike ? heart_liked :heart_default}></img>
                     <img onClick={toggleCreateCommentModal} alt="comment" src={commentIcon}></img>
                     <img alt="share" src={shareIcon}></img>
-                    <img alt="bookmark" src={bookmarkIcon}></img>
+                    <img onClick={bookmarkPost} alt="bookmark"src={toggleBookmark ? bookmarkedIcon : bookmarkIcon}></img>
                 </div>
                 <div className="likeCount">
                     <span>{p.data.likes} likes</span>

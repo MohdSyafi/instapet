@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import Sidebar from "../../Components/Sidebar/Sidebar";
 import "./Home.scss";
 import Post from "../../Components/Post/Post";
 import FeedsSvc from "../../Services/FeedsSvc";
@@ -33,9 +32,6 @@ function Home() {
             <Post key={index} data={p} />
           ))}
         </div> 
-        <div className="MessageContainer">
-           <center>Messages..to be build</center>
-          </div>   
       </div>
 
   );
