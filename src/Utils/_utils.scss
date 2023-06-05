@@ -31,3 +31,8 @@ $round-radius: 6.5px;
     justify-content: center;
     align-items: center;
 }
+
+@mixin no-scroller{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}

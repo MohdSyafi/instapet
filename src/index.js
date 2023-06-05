@@ -6,16 +6,18 @@ import Login from './Pages/Login/Login';
 import Home from './Pages/Home/Home'
 import Search from "./Pages/Search/Search";
 import reportWebVitals from './reportWebVitals';
-
+import SidebarLayout from './Pages/SidebarLayout/SidebarLayout';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
      <BrowserRouter>
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="home" element={<Home />} />
-        <Route path="search" element={<Search />} />
+      <Routes>   
+      <Route index element={<Login />} />  
+      <Route path="/login" element={<Login />} />
+        <Route path="/" element={<SidebarLayout />} >
+          <Route path="/home" element={<Home />} />
+          <Route path="/search" element={<Search />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

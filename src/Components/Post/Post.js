@@ -52,7 +52,7 @@ function Post(p) {
                     
                 </div>
                 <div className="comments">
-                    <Comment postId = {p.data.postId} username={p.data.username}/>
+                    <Comment postId = {p.data.postId} username={p.data.username} disableToggle= {false}/>
                 </div>
             </div>
 

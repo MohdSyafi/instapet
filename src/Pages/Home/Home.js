@@ -27,8 +27,6 @@ function Home() {
   }, [authenticated]);
 
   return (
-    <div className="PageContainer">
-      <Sidebar />
       <div className="HomeContainer"> 
         <div className="AllPostsContainer"> 
           {postList && postList.map((p, index) => (
@@ -39,7 +37,7 @@ function Home() {
            <center>Messages..to be build</center>
           </div>   
       </div>
-    </div>
+
   );
 }
 

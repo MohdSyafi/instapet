@@ -54,7 +54,7 @@ function Sidebar() {
                 </div>
                 <div>
                     <img alt="" />
-                    <p onCdivck={Logout} className="sidebarText">Logout</p>
+                    <p onClick={Logout} className="sidebarText">Logout</p>
                 </div>
             </div>
         </div>

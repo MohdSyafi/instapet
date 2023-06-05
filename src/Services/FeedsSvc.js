@@ -17,6 +17,18 @@ const FeedsSvc = (userName) => {
   ];
 
   const comments = [
+    { username: "user1", comment: "the desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf", postId: "post1" },
+    { username: "user1", comment: "the desc", postId: "post1" },
+    { username: "user1", comment: "the desc", postId: "post1" },
+    { username: "user1", comment: "the desc", postId: "post1" },
+    { username: "user1", comment: "the desc", postId: "post1" },
+    { username: "user1", comment: "the desc", postId: "post1" },
+    { username: "user1", comment: "the desc", postId: "post1" },
+    { username: "user1", comment: "the desc", postId: "post1" },
+    { username: "user1", comment: "the desc", postId: "post1" },
+    { username: "user1", comment: "the desc", postId: "post1" },
+    { username: "user1", comment: "the desc", postId: "post1" },
+    { username: "user1", comment: "the desc", postId: "post1" },
     { username: "user1", comment: "the desc", postId: "post1" },
     { username: "user2", comment: "the desc 2",  postId: "post2"  },
     { username: "user3", comment: "Description 3",postId: "post3"   },

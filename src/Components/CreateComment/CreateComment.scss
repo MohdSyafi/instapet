@@ -25,7 +25,7 @@
     .CreateCommentContainer{
         height: 80vh;
         width: 80vw;
-        background-color: util.$purple-900;
+        background-color: util.$purple-950;
         position: relative;
         margin: auto;
         padding: 0;
@@ -52,12 +52,91 @@
 
 
             div.postDetail{
-                height: 50%;
+
+                max-height: 50%;
                 border-bottom: 0.5px solid util.$purple-300 ;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 24px;
+
+                div.postOwner{
+                    height: 15%;
+                    padding-bottom: 24px;
+                }
+                div.postDesc{
+                    height: 70%;
+                    width: 100%;
+                    overflow: scroll;
+                    overflow-x: hidden;
+                    @include util.no-scroller;
+                }
+           
             }
 
-            div.postComment{
+            div.postComments{
                 height: 50%;
+                div.CommentsSection{
+                    @include util.display-flex;
+                    gap:8px;
+                    overflow: scroll;
+                    overflow-x: hidden;
+                    height: 70%;
+                    padding-left: 24px;
+                    padding-right: 24px;
+                    padding-top: 24px;
+                    div.CommentContainer{
+                        @include util.display-flex("row");
+                        gap:8px;
+                
+                        .cmtUsr{
+                            font-weight:900;
+                        }
+                    }
+                }
+
+                div.commentForm{
+                    @include util.display-flex("col");
+                    border-top: 0.5px solid util.$purple-300 ;
+                    align-items: center;
+                    justify-content: left;
+                    padding-top: 12px;
+                    padding-left: 24px;
+                    padding-right: 24px;
+                    gap: 12px;
+                    input{
+                        background-color: util.$purple-700;
+                        font-family: util.$font-stack;
+                        border-radius: util.$round-radius;
+                        height: 90%;
+                        border: none;
+                        color: util.$purple-100;
+                        padding: 0.8rem;
+                        text-align: center;
+                        
+                    }
+
+                    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+                        color:  util.$purple-100;
+                        opacity: 1; /* Firefox */
+                      }
+
+                    .commentTxtBox{
+                        width: 70%;
+                    }
+
+                    .commentBtn{
+                        width: 20%;
+                    }
+                    .commentBtn:active {
+                        background-color: util.$purple-800;
+                        transform: translateY(4px);
+                    }
+                }
+            }
+
+
+            ::-webkit-scrollbar {
+                width: 0;
             }
         }
     }

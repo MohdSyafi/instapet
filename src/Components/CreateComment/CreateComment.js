@@ -3,7 +3,7 @@ import closeIcon from "../../Assets/Icons/x-circle.svg";
 import catPic from "../../Assets/Images/catPic.jpg";
 import dogPic from "../../Assets/Images/dogPic.jpeg";
 import placeholderPic from "../../Assets/Images/profilePic.png";
-import Readmore from "../Readmore/Readmore";
+import Comment from "../Comment/Comment";
 
 function CreateComment({ open, toggleCreateCommentModal, post }) {
 
@@ -35,7 +35,11 @@ function CreateComment({ open, toggleCreateCommentModal, post }) {
                         </div>
                     </div>
                     <div className="postComments">
-                        TEST
+                        <Comment postId={post.postId} username={post.username} disableToggle={true} />
+                        <div className="commentForm">
+                            <input type="text" placeholder="...comment" className="commentTxtBox" name="commentDesc"/>
+                            <input className="commentBtn"  type="submit" value="send" />
+                        </div>
                     </div>
                 </div>
             </div>

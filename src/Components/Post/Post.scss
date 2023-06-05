@@ -1,7 +1,7 @@
 @use '../../Utils/utils' as util;
 
 div.PostContainer{
-    min-height: 727px;
+    min-height: 500px;
     width: 470px;
     border-bottom: 0.5px solid util.$purple-600 ;
     min-width: 470px;
@@ -41,10 +41,10 @@ div.PostContainer{
     }
 
     div.postFooter{
-        min-height: 201px;
+        min-height: 150px;
         @include util.display-flex;
-        gap:8px;
-        padding-top: 8px;
+        gap:24px;
+        padding-top: 18px;
         padding-bottom: 8px;
         div.interactBar{
            
@@ -76,7 +76,6 @@ div.PostContainer{
         div.postDesc{
             font-size: 12px;
             flex: 2;
-            font-style: italic;
             color: util.$purple-200;
             
         }
