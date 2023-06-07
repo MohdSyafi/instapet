@@ -1,7 +1,5 @@
 import "./Post.scss";
 import placeholderPic from "../../Assets/Images/profilePic.png";
-import catPic from "../../Assets/Images/catPic.jpg";
-import dogPic from "../../Assets/Images/dogPic.jpeg";
 import heart_default from "../../Assets/Icons/heart.svg";
 import heart_liked from "../../Assets/Icons/heart-liked.svg";
 import commentIcon from "../../Assets/Icons/message-square.svg";
@@ -12,6 +10,7 @@ import Readmore from "../Readmore/Readmore";
 import Comment from "../Comment/Comment";
 import CreateComment from "../CreateComment/CreateComment";
 import {useState} from "react"
+import ImageScroller from "../ImageScroller/ImageScroller";
 
 function Post(p) {
     const [toggleLike, settoggleLike] = useState(false);
@@ -41,7 +40,7 @@ function Post(p) {
                 </div>
             </div>
             <div className="postImg">
-                <img alt="post" src={p.data.pic === "catPic.jpg" ? catPic : dogPic}></img>
+                <ImageScroller postId = {p.data.postId} username={p.data.username}/>
             </div>
             <div className="postFooter">
                 <div className="interactBar">

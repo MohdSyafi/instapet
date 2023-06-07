@@ -44,6 +44,34 @@ const FeedsSvc = (userName) => {
     { username: "user50", comment: "Description 50", postId: "post3" }
   ];
 
+  const images = [
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post7" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post6" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post49" },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post2"  },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post3"   },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post3"  },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post2"   },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post2"  },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1"   },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post5"   },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1"  },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post4"  },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post50"  },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post1"  },
+    {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post3" }
+  ];
+
     function getFollowingPosts() {
         return posts;
     };
@@ -51,10 +79,15 @@ const FeedsSvc = (userName) => {
     function getComments(postIdInput){
       return comments.filter(cmt=>cmt.postId ===postIdInput);
     }
+
+    function getImages(postIdInput){
+      return images.filter(pic=>pic.postId ===postIdInput);
+    }
   
     return {
         getFollowingPosts,
-        getComments
+        getComments,
+        getImages
     };
   
   };

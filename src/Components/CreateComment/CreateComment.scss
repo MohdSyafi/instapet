@@ -15,7 +15,7 @@
     .CreateCommentContainer{
         height: 80vh;
         width: 80vw;
-        background-color: util.$purple-950;
+        background-image:util.$gradient-purple-bg;
         @include util.modal-inner-div;
         @include util.display-flex(row);
 
@@ -89,7 +89,7 @@
                     gap: 12px;
                     height: 20%;
                     input{
-                        background-color: util.$purple-700;
+                        background-color: util.$purple-600;
                         font-family: util.$font-stack;
                         border-radius: util.$round-radius;
                         border: none;

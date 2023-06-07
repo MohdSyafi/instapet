@@ -26,6 +26,7 @@ function Comment({postId,username,disableToggle}){
         else
             setshowViewAll(true);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[toggleAll])
 
     function showAllComment(){

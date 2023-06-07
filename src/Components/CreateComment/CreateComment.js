@@ -1,7 +1,6 @@
 import "./CreateComment.scss"
 import closeIcon from "../../Assets/Icons/x-circle.svg";
-import catPic from "../../Assets/Images/catPic.jpg";
-import dogPic from "../../Assets/Images/dogPic.jpeg";
+import ImageScroller from "../ImageScroller/ImageScroller";
 import placeholderPic from "../../Assets/Images/profilePic.png";
 import Comment from "../Comment/Comment";
 
@@ -20,7 +19,7 @@ function CreateComment({ open, toggleCreateCommentModal, post }) {
             <img className="modalCloseBtn" src={closeIcon} onClick={closeModal} alt="close" />
             <div className="CreateCommentContainer">
                 <div className="postImg">
-                    <img alt="post" src={post.pic === "catPic.jpg" ? catPic : dogPic}></img>
+                <ImageScroller postId = {post.postId} username={post.username}/>
                 </div>
                 <div className="post">
                     <div className="postDetail">

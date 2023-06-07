@@ -32,11 +32,9 @@ div.PostContainer{
     div.postImg{
         height: 468px;
         width: 470px;
-
+        @include util.display-flex;
         img{
             object-fit: cover;
-            height: 468px;
-            width: 470px;
         }
     }
 

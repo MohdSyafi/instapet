@@ -7,9 +7,9 @@ div.signupContainer{
         max-height: 80vh;
         width: 400px;
         @include util.modal-inner-div;
-        background-color: util.$purple-950;
+        background-image:util.$gradient-purple-bg;
         @include util.display-flex;
-        padding: 16px;
+        padding: 24px;
         gap: 24px;
                  
         h1{
@@ -18,6 +18,7 @@ div.signupContainer{
             font-family: util.$font-stack-special;
             text-align: center;
             margin: 8px;
+            font-weight: normal;
         }
 
         .modalCloseBtn{
@@ -32,7 +33,7 @@ div.signupContainer{
 
         }
         input{
-            background-color: util.$purple-700;
+            background-color: util.$purple-600;
             font-family: util.$font-stack;
             border-radius: util.$round-radius;
             height: 2rem;
@@ -44,7 +45,7 @@ div.signupContainer{
         input.SubmitBtn{
             text-align: center;
             align-self: flex-end;
-            background-color: util.$purple-700;
+            background-color: util.$purple-600;
             color: util.$purple-100;
             border-radius: util.$round-radius;
             border: none;

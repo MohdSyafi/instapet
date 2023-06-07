@@ -17,7 +17,7 @@ input:focus {
 }
 
 .AppContainer {
-    background-color: util.$purple-950;
+    background-image:util.$gradient-purple-bg;
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -40,6 +40,7 @@ input:focus {
             color: util.$purple-100;
             font-family: util.$font-stack-special;
             text-align: center;
+            font-weight: normal;
         }
         label{
             color: util.$purple-100;
@@ -47,7 +48,7 @@ input:focus {
 
         }
         input{
-            background-color: util.$purple-700;
+            background-color: util.$purple-600;
             font-family: util.$font-stack;
             border-radius: util.$round-radius;
             height: 2rem;
@@ -63,7 +64,7 @@ input:focus {
             input.SubmitBtn{
                 text-align: center;
                 justify-self: end;
-                background-color: util.$purple-700;
+                background-color: util.$purple-600;
                 color: util.$purple-100;
                 border-radius: util.$round-radius;
                 border: none;

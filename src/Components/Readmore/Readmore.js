@@ -21,7 +21,8 @@ function Readmore({ text }) {
             settrimText(text.substring(0, 70))
         }
 
-    }, [trimText, text, toggleMoreState])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [toggleMoreState])
 
     function showMore() {
         settoggleMoreState(!toggleMoreState)
