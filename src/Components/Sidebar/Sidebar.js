@@ -42,7 +42,7 @@ function Sidebar() {
                 </div>
                 <div>
                     <img alt="" />
-                    <Link to="/create"> <p className="sidebarText">Create</p></Link>
+                    <Link to="/createpost"> <p className="sidebarText">Create</p></Link>
                 </div>
                 <div>
                     <img alt="" />
