@@ -1,0 +1,124 @@
+@use '../../Utils/utils' as util;
+
+div.CP-Container{
+    flex: 9;
+    color: white;
+    @include util.display-flex(row);
+    justify-content: space-around;
+    max-width: 70vw;
+    min-width: 20vw;
+    input{
+        background-color: util.$purple-600;
+        font-family: util.$font-stack;
+        border-radius: util.$round-radius;
+        border: none;
+        color: util.$purple-100;
+        text-align: center;
+        padding: 12px;
+        
+    }
+
+    .PostBtn:active,.uploadBtn:active {
+        background-color: util.$purple-800;
+        transform: translateY(4px);
+    }
+
+    div.CP-ImageUploader{
+        max-width: 50%;
+        min-width: 30%;
+        @include util.display-flex;
+
+        div.CP-ImageContainer{
+            width: 100%;
+            background-repeat:no-repeat;
+            background-size: 30% 30%;
+            background-position: center;
+            flex: 8;
+            @include util.display-flex(row);
+            justify-content: center;
+            
+            input{
+                width: 150px;
+                height: 50px;
+                margin-top: 30%;
+                margin-bottom: 68%;
+            }
+
+        }
+        div.CP-ImagePreviewGallery{
+            flex: 2;
+            @include util.display-flex(row);
+            gap:12px;
+            max-width: 100%;
+            overflow: hidden;
+            align-items: center;
+            transform: rotateX(180deg);
+            img.imgPreview{
+                height: 150px;
+                width: 150px;
+                margin: 0;
+                padding: 0;
+                object-fit: cover;
+                transform: rotateX(180deg);
+            }
+        }
+
+        div.CP-ImagePreviewGallery:hover{
+            overflow-y: hidden;
+            overflow-x: scroll;
+        }
+    }
+
+    div.CP-PostDetail{
+        width: 40%;
+        @include util.display-flex;
+        gap: 12px;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        label{
+            margin-top: 24px;
+            border-bottom: 0.5px solid util.$purple-300 ;
+            padding-bottom: 12px;
+            text-align: left;
+            width: 100%;
+        }
+        textarea.descTxtBox{
+            background: transparent;
+            font-family: util.$font-stack;       
+            border: none;
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            color: util.$purple-100;
+            text-align: center;
+            padding: 0;
+            width: 100%;
+            min-height: 50%;
+            max-height: 80%;
+            border-bottom: 0.5px solid util.$purple-300 ;
+        }
+
+        textarea:active,textarea:focus{
+            border: none;
+            outline: none;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            border-bottom: 0.5px solid util.$purple-300 ;
+
+        }
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color:  util.$purple-100;
+            opacity: 1; /* Firefox */
+          }
+
+        .PostBtn{
+            min-width: 200px;
+            max-width: 300px;
+        }
+
+    }
+}
