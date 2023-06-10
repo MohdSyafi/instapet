@@ -18,44 +18,55 @@ div.CP-Container{
         
     }
 
-    .PostBtn:active,.uploadBtn:active {
+    .PostBtn:active,.file-upload-button:active {
         background-color: util.$purple-800;
         transform: translateY(4px);
     }
 
     div.CP-ImageUploader{
-        max-width: 50%;
-        min-width: 30%;
+        width: 60%;
         @include util.display-flex;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        gap: 10px;
+        max-height: 100%;
+        input[type="file"] {
+            display: none;
+        }
 
-        div.CP-ImageContainer{
+        label.CP-ImageContainer{
             width: 100%;
             background-repeat:no-repeat;
             background-size: 30% 30%;
             background-position: center;
+            background-color: transparent;
             flex: 8;
             @include util.display-flex(row);
             justify-content: center;
-            
-            input{
-                width: 150px;
-                height: 50px;
-                margin-top: 30%;
-                margin-bottom: 68%;
+            border: 0.5px solid util.$purple-300 ;
+            cursor: pointer;
+
+            .mainPreviewImg{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
             }
 
         }
         div.CP-ImagePreviewGallery{
-            flex: 2;
+            height: fit-content;
+            min-height: 10%;
+            max-height: 15%;
             @include util.display-flex(row);
             gap:12px;
             max-width: 100%;
             overflow: hidden;
             align-items: center;
             transform: rotateX(180deg);
+            padding-bottom: 10px;
             img.imgPreview{
-                height: 150px;
-                width: 150px;
+                height: 100px;
+                width: 100px;
                 margin: 0;
                 padding: 0;
                 object-fit: cover;
@@ -70,15 +81,14 @@ div.CP-Container{
     }
 
     div.CP-PostDetail{
-        width: 40%;
+        width: 30%;
         @include util.display-flex;
         gap: 12px;
-        height: 100%;
         align-items: center;
         justify-content: center;
+       
         label{
             margin-top: 24px;
-            border-bottom: 0.5px solid util.$purple-300 ;
             padding-bottom: 12px;
             text-align: left;
             width: 100%;
@@ -93,11 +103,11 @@ div.CP-Container{
             box-shadow: none;
             color: util.$purple-100;
             text-align: center;
-            padding: 0;
+            padding: 12px;
             width: 100%;
             min-height: 50%;
-            max-height: 80%;
-            border-bottom: 0.5px solid util.$purple-300 ;
+            height: 62%;
+            border: 0.5px solid util.$purple-300 ;
         }
 
         textarea:active,textarea:focus{
@@ -106,7 +116,7 @@ div.CP-Container{
             -webkit-box-shadow: none;
             -moz-box-shadow: none;
             box-shadow: none;
-            border-bottom: 0.5px solid util.$purple-300 ;
+            border: 0.5px solid util.$purple-300 ;
 
         }
 

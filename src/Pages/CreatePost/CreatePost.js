@@ -1,39 +1,75 @@
 import "./CreatePost.scss";
 import uploadIcon from "../../Assets/Icons/upload.svg";
-import { useRef, useState,useEffect } from "react";
-import catPic from "../../Assets/Images/catPic.jpg";
-function CreatePost() {
+import { ChangeEvent,useRef, useState, useEffect } from "react";
 
+function CreatePost() {
+  const [selectedImage, setSelectedImage] = useState();
+  const [selectedImages, setSelectedImages] = useState([]);
+
+  useEffect(()=>{
+    if(selectedImages.length >0){
+      setSelectedImage(selectedImages[selectedImages.length - 1]);
+    }
+
+    if(selectedImages.length === 0){
+      setSelectedImage(null)
+    }
+ 
+  },[selectedImages])
+
+  const handleFileChange = (e) => {
+    if (e.target.files) {
+      if (e.target.files && e.target.files.length > 0) {
+        setSelectedImages(selectedImages => [...selectedImages, e.target.files[0]])
+      }
+    }
+  };
+
+  const clearPrev = (e)=>{
+    e.currentTarget.value = null
+  }
+
+  const handleUploadClick = () => {
+    console.log(selectedImages); 
+  };
+
+  function removeImg (i){
+    setSelectedImages(selectedImages.filter((img,index)=> index !== i ))
+    
+  }
 
   return (
     <div className="CP-Container">
       <div className="CP-ImageUploader">
-        <div
-          className="CP-ImageContainer"
-          style={{ backgroundImage: `url(${uploadIcon})` }}
-        >
-            <input className="uploadBtn" type="submit" value="upload" />
-        </div>
+        <label htmlFor="file-upload"  className="CP-ImageContainer custom-file-upload"
+          style={{ backgroundImage: `url(${uploadIcon})`}}> 
+          {
+            selectedImage &&(
+              <img className="mainPreviewImg" alt="preview" src={URL.createObjectURL(selectedImage)}></img>
+            ) 
+          }
+        </label>
+        <input id="file-upload" type="file" onChange={handleFileChange} onClick={clearPrev} />
         <div className="CP-ImagePreviewGallery">
-            <img data-key={1} src={catPic} className="imgPreview" alt="preview"></img>
-            <img src={catPic} className="imgPreview" alt="preview"></img>
-            <img src={catPic} className="imgPreview" alt="preview"></img>
-            <img src={catPic} className="imgPreview" alt="preview"></img>
-            <img src={catPic} className="imgPreview" alt="preview"></img>
-            <img src={catPic} className="imgPreview" alt="preview"></img>
-            <img src={catPic} className="imgPreview" alt="preview"></img>
-            <img src={catPic} className="imgPreview" alt="preview"></img>
+          {selectedImages.map((img,i)=>{
+            return(
+              <img onClick={()=>removeImg(i)} key={i} src={URL.createObjectURL(img)} className="imgPreview" alt="preview"></img>
+
+            );
+
+          })}
+  
         </div>
       </div>
       <div className="CP-PostDetail">
         <label>Write about the post : </label>
-          <textarea
-            placeholder="...description"
-            className="descTxtBox"
-            name="postDesc"
-          />
-          <input className="PostBtn" type="submit" value="Post" />
-        </div>
+        <textarea
+          placeholder="...description"
+          className="descTxtBox"
+          name="postDesc"
+        />
+        <input className="PostBtn" onClick={handleUploadClick} type="button" value="Post" />
+      </div>
     </div>
   );
 }
