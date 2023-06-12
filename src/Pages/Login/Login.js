@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import  LoginSvc from "../../Services/LoginSvc";
 import Signup from "../../Components/Signup/Signup";
+import Swal from 'sweetalert2'
+import utils from "../../Utils/utils";
 
 function Login() {
   const navigate = useNavigate();
@@ -11,15 +13,26 @@ function Login() {
   const [password, setpassword] = useState("");
   const [toggleSignup,settoggleSignup] = useState(false);
 
-  const handleSubmit = (e) => {
+  const  handleSubmit = async (e) => {
     e.preventDefault();
     const loginSvc = LoginSvc(username,password);
-    if (loginSvc.authenticateUser()) {
+
+    const res = await loginSvc.authenticateUser();
+
+    if (res) {
       localStorage.setItem("authenticated", true);
       navigate("/home");
     }else{
       localStorage.setItem("authenticated", false);
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Failed to login!',
+        text: 'Please check your credentials',
+        customClass: utils().GetSwalCustomClass()
+      })
     }
+
   };
 
   function showSignupModel(){

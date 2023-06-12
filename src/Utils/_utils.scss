@@ -67,3 +67,19 @@ $gradient-purple-bg : linear-gradient($purple-800, $purple-950);
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
   }
+
+
+  .swalCustPopup{
+    background-color: $purple-900 !important;
+  }
+  .swalCustConfirmBtn{
+    background-color: $purple-600 !important;
+  }
+
+  .swalCustTitle{
+    color: $purple-200 !important;
+  }
+
+  .swalCustHtmlContainer{
+    color: $purple-200 !important;
+  }
