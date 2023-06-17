@@ -1,0 +1,92 @@
+@use '../../Utils/utils' as util;
+
+.PageContainer{
+    height: 100%;
+    background-image:util.$gradient-purple-bg;
+    @include util.display-flex(row);
+    gap:20vw;
+
+    div.SidebarContainer{
+        flex: 1;
+    }
+
+    div.SearchContainer{
+        flex: 9;
+        color: white;
+        @include util.display-flex;
+
+        div.SearchContent{
+            max-width: 500px;
+            h1{
+                font-family: util.$font-stack-special;
+                font-style: italic;
+                width: 90%;
+            }
+    
+            div.SearchBar{
+                @include util.display-flex(row);
+                align-items: center;
+                width: 100%;
+                input{
+                    background-color: util.$purple-600;
+                    font-family: util.$font-stack;
+                    border-radius: util.$round-radius;
+                    height: 2rem;
+                    border: none;
+                    color: util.$purple-100;
+                    padding: 0.8rem;
+                    width: 80%;
+                }
+    
+                img{
+                    height: 4rem;
+                }
+            }
+    
+            div.SearchResultContainer{
+                @include util.display-flex;
+                width: 100%;
+                div.postOwner{
+                    @include util.display-flex("row");
+                    border-bottom: 0.5px solid util.$purple-600 ;
+                    height: 56px ;
+                    gap:16px;
+                    font-size: 16px;
+                    width: 85%;
+                    animation-name: fade;
+                    animation-duration: 1.5s;
+                    img{
+                        height: 36px;
+                        width: 36px;
+                        border-radius: 36px;
+                        align-self: center
+                    }
+            
+                    div{
+                        @include util.display-flex("row");
+                        @include util.flex-center;
+                    }
+            
+                }
+
+
+            }
+        }
+
+    }
+}
+
+@keyframes slide {
+    0%   { transform: translate(-25%); }
+    100% { transform: translate(0%); }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.3;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
