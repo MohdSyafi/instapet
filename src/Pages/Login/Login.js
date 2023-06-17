@@ -21,6 +21,7 @@ function Login() {
 
     if (res) {
       localStorage.setItem("authenticated", true);
+      localStorage.setItem("username", username);
       navigate("/home");
     }else{
       localStorage.setItem("authenticated", false);

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import "./Home.scss";
 import Post from "../../Components/Post/Post";
-import FeedsSvc from "../../Services/FeedsSvc";
+import PostSvc from "../../Services/PostSvc";
 
 function Home() {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ function Home() {
     if (loggedInUser === "true") {
       setauthenticated(true);
 
-      var feedsSvc = FeedsSvc("Jane");
+      var feedsSvc = PostSvc("Jane");
       setpostList(feedsSvc.getFollowingPosts())
 
     } else {

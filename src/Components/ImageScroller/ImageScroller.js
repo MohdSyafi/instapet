@@ -4,7 +4,7 @@ import dogPic from "../../Assets/Images/dogPic.jpeg";
 import nextIcon from "../../Assets/Icons/arrow-right.svg";
 import previousIcon from "../../Assets/Icons/arrow-left.svg";
 import { useEffect, useState } from "react";
-import FeedsSvc from "../../Services/FeedsSvc";
+import PostSvc from "../../Services/PostSvc";
 import React from 'react';
 
 function ImageScroller({ postId: PostId, username }) {
@@ -14,7 +14,7 @@ function ImageScroller({ postId: PostId, username }) {
 
   useEffect(() => {
     let allImgList = [];
-    const feedsSvc = FeedsSvc(username);
+    const feedsSvc = PostSvc(username);
     allImgList = feedsSvc.getImages(PostId);
     setImages(allImgList);
     setimgArrLength(allImgList.length);

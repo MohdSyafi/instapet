@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import FeedsSvc from "../../Services/FeedsSvc";
+import PostSvc from "../../Services/PostSvc";
 import "./Comment.scss";
 
 function Comment({postId,username,disableToggle}){
@@ -9,7 +9,7 @@ function Comment({postId,username,disableToggle}){
     const [displayCommentList,setdisplayCommentList] = useState([]);
     useEffect(()=>{
         let allCommentsList = [];
-        const feedsSvc = FeedsSvc(username);
+        const feedsSvc = PostSvc(username);
 
         allCommentsList =feedsSvc.getComments(postId);
 

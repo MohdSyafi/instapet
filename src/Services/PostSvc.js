@@ -1,4 +1,9 @@
-const FeedsSvc = (userName) => {
+import axios from "axios";
+import utils from "../Utils/utils";
+
+const PostSvc = (userName) => {
+
+  const PostUrl = utils().GetApiUrl() + '/Post/';
 
   const posts = [
     { postId: "post1", username: "user1", desc: "the desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfas ", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
@@ -83,13 +88,24 @@ const FeedsSvc = (userName) => {
     function getImages(postIdInput){
       return images.filter(pic=>pic.postId ===postIdInput);
     }
+
+    async  function AddPost(param){
+      try {
+        const response = await axios.post( PostUrl +'AddPost', param);
+        return response.data;
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+    }
   
     return {
         getFollowingPosts,
         getComments,
-        getImages
+        getImages,
+        AddPost
     };
   
   };
 
-  export default FeedsSvc;
+  export default PostSvc;

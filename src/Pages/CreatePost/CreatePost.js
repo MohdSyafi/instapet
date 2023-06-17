@@ -1,10 +1,12 @@
 import "./CreatePost.scss";
 import uploadIcon from "../../Assets/Icons/upload.svg";
 import { ChangeEvent,useRef, useState, useEffect } from "react";
+import PostSvc from "../../Services/PostSvc";
 
 function CreatePost() {
   const [selectedImage, setSelectedImage] = useState();
   const [selectedImages, setSelectedImages] = useState([]);
+  const [postDescription, setPostDescription] = useState("");
 
   useEffect(()=>{
     if(selectedImages.length >0){
@@ -29,8 +31,21 @@ function CreatePost() {
     e.currentTarget.value = null
   }
 
-  const handleUploadClick = () => {
-    console.log(selectedImages); 
+  const handleUploadClick = async () => {
+    const username = localStorage.getItem("username");
+
+    let formData = new FormData();
+    formData.append("PostId",0);
+    formData.append("UserId",1);
+    formData.append("Description",postDescription);
+    formData.append("Likes",0);
+    formData.append("images",[]);
+
+    for (const image of selectedImages) {
+      formData.append("formFiles",image)
+    }
+    const res = await PostSvc().AddPost(formData);
+    console.log(res);
   };
 
   function removeImg (i){
@@ -67,6 +82,7 @@ function CreatePost() {
           placeholder="...description"
           className="descTxtBox"
           name="postDesc"
+          onChange={(e) => setPostDescription(e.target.value)}
         />
         <input className="PostBtn" onClick={handleUploadClick} type="button" value="Post" />
       </div>
