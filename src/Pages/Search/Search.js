@@ -3,6 +3,7 @@ import spinner from "../../Assets/Icons/Spinner.svg"
 import { useState, useEffect } from "react";
 import placeholderPic from "../../Assets/Images/profilePic.png";
 import SearchSvc from "../../Services/SearchSvc";
+import Follow from "../../Components/Follow/Follow";
 function Search() {
 
   const [isSearching, setIsSearching] = useState(false);
@@ -12,10 +13,12 @@ function Search() {
   useEffect(() => {
     const timer = setTimeout(async () => {
       if (searchInput !== "") {
+        const userId = localStorage.getItem("userId");
         setIsSearching(true);
         setSearchResult([]);
-        const res = await SearchSvc().GetUsers(searchInput);
+        const res = await SearchSvc().GetUsers(searchInput, userId);
         setSearchResult(res.data);
+        console.log(res.data);
         setIsSearching(false);
       } else
         setSearchResult([]);
@@ -44,9 +47,10 @@ function Search() {
             return (
               <div className="postOwner" key={i}>
                 <img src={placeholderPic} alt="profile"></img>
-                <div>
+                <div className="UserNameContent">
                   <span>{result.username}</span>
                 </div>
+                <Follow id= {result.userId} following ={result.followed}></Follow>
               </div>
             )
           })}

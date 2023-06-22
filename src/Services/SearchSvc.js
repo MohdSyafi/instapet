@@ -4,12 +4,13 @@ import utils from "../Utils/utils";
 const SearchSvc = ()=>{
     const SearchUrl = utils().GetApiUrl() + '/Search/';
 
-    async function GetUsers(nameToSearch){
+    async function GetUsers(nameToSearch,userId){
         try{
 
             var res = await axios.post(SearchUrl + "SearchUser", null,{
                params:{
-                input : nameToSearch
+                input : nameToSearch,
+                UserId : userId
                } 
             })
 

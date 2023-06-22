@@ -61,10 +61,31 @@
                         border-radius: 36px;
                         align-self: center
                     }
-            
-                    div{
+
+                    .FollowContent{
                         @include util.display-flex("row");
                         @include util.flex-center;
+                        img.followIcon,img.loadingSpinner{
+                            height: 1.5rem;
+                            width: 1.5rem;
+                            align-self: center;
+                            justify-self: center;        
+                        }
+                    
+                        img.followIcon:hover{
+                            transform: scale(1.5);
+                        }
+                    
+                        img.followIcon:active{
+                            transform: scale(1.0);
+                        }
+                    }
+            
+                    div.UserNameContent{
+                        @include util.display-flex("row");
+                        text-align: start;
+                        align-self: center;
+                        width: 75%;
                     }
             
                 }

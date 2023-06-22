@@ -22,9 +22,10 @@ function Login() {
 
     const res = await loginSvc.authenticateUser();
 
-    if (res) {
+    if (res.isAuthenticated) {
       localStorage.setItem("authenticated", true);
       localStorage.setItem("username", username);
+      localStorage.setItem("userId", res.userId);
       setIsLoading(false);
       navigate("/home");
     } else {
