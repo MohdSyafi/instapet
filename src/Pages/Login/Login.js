@@ -1,31 +1,35 @@
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import  LoginSvc from "../../Services/LoginSvc";
+import LoginSvc from "../../Services/LoginSvc";
 import Signup from "../../Components/Signup/Signup";
 import Swal from 'sweetalert2'
 import utils from "../../Utils/utils";
+import spinner from "../../Assets/Icons/Spinner.svg"
 
 function Login() {
   const navigate = useNavigate();
 
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
-  const [toggleSignup,settoggleSignup] = useState(false);
+  const [toggleSignup, settoggleSignup] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const  handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
-    const loginSvc = LoginSvc(username,password);
+    const loginSvc = LoginSvc(username, password);
 
     const res = await loginSvc.authenticateUser();
 
     if (res) {
       localStorage.setItem("authenticated", true);
       localStorage.setItem("username", username);
+      setIsLoading(false);
       navigate("/home");
-    }else{
+    } else {
       localStorage.setItem("authenticated", false);
-
+      setIsLoading(false);
       Swal.fire({
         icon: 'error',
         title: 'Failed to login!',
@@ -36,7 +40,7 @@ function Login() {
 
   };
 
-  function showSignupModel(){
+  function showSignupModel() {
     settoggleSignup(!toggleSignup);
   }
 
@@ -59,12 +63,17 @@ function Login() {
             onChange={(e) => setpassword(e.target.value)}
           />
           <div>
-            <input className="SubmitBtn" type="submit" value="Login" />
+            {isLoading ? (
+                <img src={spinner} alt="loading" />
+              ) : (
+                <input className="SubmitBtn" type="submit" value="Login" />
+              )}
+
           </div>
           <span >No account? <span className="signupLink" onClick={showSignupModel}>Create one!</span> </span>
         </div>
       </form>
-      <Signup open={toggleSignup} showSignupModel={showSignupModel}/>
+      <Signup open={toggleSignup} showSignupModel={showSignupModel} />
     </div>
   );
 }

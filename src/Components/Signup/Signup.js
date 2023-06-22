@@ -4,13 +4,14 @@ import { useState } from "react";
 import LoginSvc from "../../Services/LoginSvc";
 import Swal from 'sweetalert2'
 import utils from "../../Utils/utils";
+import spinner from "../../Assets/Icons/Spinner.svg"
 
 function Signup({ open, showSignupModel }) {
     const [email, setemail] = useState("");
     const [username, setusername] = useState("");
     const [password, setpassword] = useState("");
     const [confirmpassword, setconfirmpassword] = useState("");
-
+    const [isLoading, setIsLoading] = useState(false);
 
     if (!open) {
         return false;
@@ -22,7 +23,7 @@ function Signup({ open, showSignupModel }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        setIsLoading(true);
         let swalErrorTitle = 'Error creating account...';
 
         if (email === "") {
@@ -67,7 +68,7 @@ function Signup({ open, showSignupModel }) {
     }
 
     function showSweetAlert(swalIcon,swalTitle,swalText,isSignedUp){
-
+        setIsLoading(false);
         Swal.fire({
             icon: swalIcon,
             title: swalTitle,
@@ -116,8 +117,12 @@ function Signup({ open, showSignupModel }) {
                         value={confirmpassword}
                         onChange={(e) => setconfirmpassword(e.target.value)}
                     />
+                    {isLoading ? (
+                      <img src={spinner} alt="loading" />
+                    ):(
+                        <input className="SubmitBtn" type="submit" value="Signup" />
+                    )}
 
-                    <input className="SubmitBtn" type="submit" value="Signup" />
                 </div>
             </form>
         </div>
