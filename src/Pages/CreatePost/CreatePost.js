@@ -2,11 +2,15 @@ import "./CreatePost.scss";
 import uploadIcon from "../../Assets/Icons/upload.svg";
 import { ChangeEvent,useRef, useState, useEffect } from "react";
 import PostSvc from "../../Services/PostSvc";
+import spinner from "../../Assets/Icons/Spinner.svg";
+import Swal from 'sweetalert2';
+import utils from "../../Utils/utils";
 
 function CreatePost() {
   const [selectedImage, setSelectedImage] = useState();
   const [selectedImages, setSelectedImages] = useState([]);
   const [postDescription, setPostDescription] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(()=>{
     if(selectedImages.length >0){
@@ -32,6 +36,7 @@ function CreatePost() {
   }
 
   const handleUploadClick = async () => {
+    setIsLoading(true);
     const username = localStorage.getItem("username");
 
     let formData = new FormData();
@@ -45,7 +50,18 @@ function CreatePost() {
       formData.append("formFiles",image)
     }
     const res = await PostSvc().AddPost(formData);
-    console.log(res);
+
+    setIsLoading(false);
+    Swal.fire({
+      icon: 'success',
+      title: 'Success!',
+      text: 'Post has been created',
+      customClass: utils().GetSwalCustomClass()
+    })
+
+    setSelectedImage(null);
+    setSelectedImages([]);
+    setPostDescription("");
   };
 
   function removeImg (i){

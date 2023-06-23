@@ -33,7 +33,7 @@ div.CP-Container{
         input[type="file"] {
             display: none;
         }
-
+        max-height: 100%;
         label.CP-ImageContainer{
             width: 100%;
             background-repeat:no-repeat;
@@ -45,10 +45,10 @@ div.CP-Container{
             justify-content: center;
             border: 0.5px solid util.$purple-300 ;
             cursor: pointer;
-
+            max-height: 80vh;
             .mainPreviewImg{
-                height: 100%;
                 width: 100%;
+              
                 object-fit: cover;
             }
 
