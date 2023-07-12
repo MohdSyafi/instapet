@@ -7,17 +7,14 @@ import { useEffect, useState } from "react";
 import PostSvc from "../../Services/PostSvc";
 import React from 'react';
 
-function ImageScroller({ postId: PostId, username }) {
+function ImageScroller({ postId: PostId, username,imageList }) {
   const [images, setImages] = useState([]);
   const [currentImgIndex, setcurrentImgIndex] = useState(0);
   const [imgArrLength, setimgArrLength] = useState(0);
 
   useEffect(() => {
-    let allImgList = [];
-    const feedsSvc = PostSvc(username);
-    allImgList = feedsSvc.getImages(PostId);
-    setImages(allImgList);
-    setimgArrLength(allImgList.length);
+    setImages(imageList);
+    setimgArrLength(imageList.length);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -48,7 +45,7 @@ function ImageScroller({ postId: PostId, username }) {
                     currentImgIndex === i ? 'fade' : 'slide fade'
                   }
                   key={i}
-                  src={img.pic === "catPic.jpg" ? catPic : dogPic}
+                  src={img.location}
                   alt=""
                 />
 

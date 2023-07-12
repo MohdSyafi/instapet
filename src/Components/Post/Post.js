@@ -12,7 +12,7 @@ import CreateComment from "../CreateComment/CreateComment";
 import {useState} from "react"
 import ImageScroller from "../ImageScroller/ImageScroller";
 
-function Post(p) {
+function Post({data}) {
     const [toggleLike, settoggleLike] = useState(false);
     const [toggleBookmark, settoggleBookmark] = useState(false);
     const [toggleCreateCmtModal, settoggleCreateCmtModal] = useState(false);
@@ -36,11 +36,11 @@ function Post(p) {
             <div className="postOwner">
                 <img src={placeholderPic} alt="profile"></img>
                 <div>
-                    <span>{p.data.username}</span>
+                    <span>{data.userName}</span>
                 </div>
             </div>
             <div className="postImg">
-                <ImageScroller postId = {p.data.postId} username={p.data.username}/>
+                <ImageScroller postId = {data.postId} username={data.userId} imageList = {data.images}/>
             </div>
             <div className="postFooter">
                 <div className="interactBar">
@@ -50,18 +50,18 @@ function Post(p) {
                     <img onClick={bookmarkPost} alt="bookmark"src={toggleBookmark ? bookmarkedIcon : bookmarkIcon}></img>
                 </div>
                 <div className="likeCount">
-                    <span>{p.data.likes} likes</span>
+                    <span>{data.likes} likes</span>
                 </div>
                 <div className="postDesc">
-                    <Readmore text={p.data.desc}/>
+                    <Readmore text={data.description}/>
                     
                 </div>
                 <div className="comments">
-                    <Comment postId = {p.data.postId} username={p.data.username} disableToggle= {false}/>
+                    <Comment postId = {data.postId} username={data.userId} disableToggle= {false}/>
                 </div>
             </div>
 
-            <CreateComment open={toggleCreateCmtModal} toggleCreateCommentModal={toggleCreateCommentModal} post={p.data}/>
+            <CreateComment open={toggleCreateCmtModal} toggleCreateCommentModal={toggleCreateCommentModal} post={data}/>
         </div>
     );
 }

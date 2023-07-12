@@ -7,7 +7,7 @@ import PostSvc from "../../Services/PostSvc";
 function Home() {
   const navigate = useNavigate();
   const [authenticated, setauthenticated] = useState(false);
-  const [postList, setpostList] = useState();
+  const [postList, setpostList] = useState([]);
 
   useEffect(() => {
     const loggedInUser = localStorage.getItem("authenticated");
@@ -15,15 +15,27 @@ function Home() {
     if (loggedInUser === "true") {
       setauthenticated(true);
 
-      var feedsSvc = PostSvc("Jane");
-      setpostList(feedsSvc.getFollowingPosts())
-
     } else {
       setauthenticated(false);
       navigate("/login");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authenticated]);
+
+  useEffect(()=>{
+
+    const fetchPost = async () => {
+      const userId = localStorage.getItem("userId");
+      let posts = await PostSvc(userId).getFollowingPosts(userId);
+      setpostList(posts);
+      console.log(posts);
+    } 
+
+    fetchPost()    
+    // make sure to catch any error
+    .catch(console.error);;
+
+  },[])
 
   return (
       <div className="HomeContainer"> 

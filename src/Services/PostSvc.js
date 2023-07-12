@@ -77,8 +77,19 @@ const PostSvc = (userName) => {
     {pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" , postId: "post3" }
   ];
 
-    function getFollowingPosts() {
+    async function getFollowingPosts(UserId) {
+      try {
+        const response = await axios.get(PostUrl +'GetPosts', {
+          params: {
+            userId: UserId
+          }
+        });
+        let posts = response.data;
         return posts;
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
     };
   
     function getComments(postIdInput){

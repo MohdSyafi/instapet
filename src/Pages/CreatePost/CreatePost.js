@@ -38,10 +38,10 @@ function CreatePost() {
   const handleUploadClick = async () => {
     setIsLoading(true);
     const username = localStorage.getItem("username");
-
+    const userId = localStorage.getItem("userId");
     let formData = new FormData();
     formData.append("PostId",0);
-    formData.append("UserId",1);
+    formData.append("UserId",userId);
     formData.append("Description",postDescription);
     formData.append("Likes",0);
     formData.append("images",[]);
