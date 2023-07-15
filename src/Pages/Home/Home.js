@@ -28,7 +28,6 @@ function Home() {
       const userId = localStorage.getItem("userId");
       let posts = await PostSvc(userId).getFollowingPosts(userId);
       setpostList(posts);
-      console.log(posts);
     } 
 
     fetchPost()    

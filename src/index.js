@@ -8,6 +8,7 @@ import Search from "./Pages/Search/Search";
 import reportWebVitals from './reportWebVitals';
 import SidebarLayout from './Pages/SidebarLayout/SidebarLayout';
 import CreatePost from './Pages/CreatePost/CreatePost';
+import Profile from './Pages/Profile/Profile'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ root.render(
           <Route path="/home" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/createpost" element={<CreatePost />} />
+          <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,79 @@
+@use '../../Utils/utils' as util;
+
+div.ProfileContainer{
+    flex: 9;
+    color: white;
+    @include util.display-flex;
+    gap:12px;
+    max-width: 70vw;
+    min-width: 20vw;
+    overflow: scroll;
+    overflow-x: hidden;
+    @include util.no-scroller;
+
+    div.ProfileTop{
+        padding: 18px;
+        @include util.display-flex(row);
+        gap:24px;
+        align-items: center;
+        
+        div.ProfilePic{
+            max-height: 100%;
+            @include util.display-flex;
+            @include util.flex-center;
+            img{
+                max-height: 200px;
+                border-radius:50%;
+                
+            }
+        }
+        div.ProfileDetail{
+            @include util.display-flex;
+            height: 100%;
+            div.Profile-User{
+                flex: 2;
+                @include util.display-flex(row);
+                align-items: center;
+            }
+
+            div.Profile-User-Stats{
+                flex: 2;
+                @include util.display-flex(row);
+                gap:12px;
+                div.Profile-Post{
+                    align-self: center;
+                }
+                div.Profile-Followers{
+                    align-self: center;
+                }
+                div.Profile-Following{
+                    align-self: center;
+                }
+
+                .span-bold{
+                    font-weight: bold;
+                }   
+            }
+
+            div.Profile-User-Descr{
+                flex:4;
+            }
+        }
+    }
+    div.ProfileBottom{
+        max-width: 80%;
+        div.PostGrid{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap:1px;
+            div.Tile{
+                height: 300px;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}

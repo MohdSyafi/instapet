@@ -1,6 +1,6 @@
 import "./CreatePost.scss";
 import uploadIcon from "../../Assets/Icons/upload.svg";
-import { ChangeEvent, useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import PostSvc from "../../Services/PostSvc";
 import spinner from "../../Assets/Icons/Spinner.svg";
 import Swal from "sweetalert2";
@@ -39,7 +39,6 @@ function CreatePost() {
 
   const handleUploadClick = async () => {
     setIsLoading(true);
-    const username = localStorage.getItem("username");
     const userId = localStorage.getItem("userId");
     let formData = new FormData();
     formData.append("PostId", 0);
@@ -51,8 +50,7 @@ function CreatePost() {
     for (const image of selectedImages) {
       formData.append("formFiles", image);
     }
-    const res = await PostSvc().AddPost(formData);
-
+    await PostSvc().AddPost(formData);
     setIsLoading(false);
     Swal.fire({
       icon: "success",

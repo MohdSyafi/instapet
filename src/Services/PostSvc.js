@@ -5,22 +5,6 @@ const PostSvc = (userName) => {
 
   const PostUrl = utils().GetApiUrl() + '/Post/';
 
-  const posts = [
-    { postId: "post1", username: "user1", desc: "the desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfas ", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
-    { postId: "post2",username: "user2", desc: "the desc 2", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
-    { postId: "post3",username: "user3", desc: "Description 3", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
-    { postId: "post4",username: "user4", desc: "Description 4", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
-    { postId: "post5",username: "user5", desc: "Description 5", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
-    { postId: "post6",username: "user6", desc: "Description 6", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
-    { postId: "post7",username: "user7", desc: "Description 7", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
-    { postId: "post1",username: "user8", desc: "Description 8", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
-    { postId: "post2",username: "user9", desc: "Description 9", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
-    { postId: "post3",username: "user10", desc: "Description 10", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
-    { postId: "post4",username: "user48", desc: "Description 48", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
-    { postId: "post5",username: "user49", desc: "Description 49", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" },
-    { postId: "post6",username: "user50", desc: "Description 50", likes: Math.floor(Math.random() * 101) , pic: Math.random() < 0.5 ? "catPic.jpg" : "dogPic.jpg" }
-  ];
-
   const comments = [
     { username: "user1", comment: "the desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf asdfas  asfdf the desc afdasd asfddadfasthe desc afdasd asfddadfas afasdf asf asf asfas afdasd asfddadfas afasdf asf asf asfasthe desc afdasd asfddadfas afasdf asf asf asfasdfasf asf asfdasdf", postId: "post1" },
     { username: "user1", comment: "the desc", postId: "post1" },

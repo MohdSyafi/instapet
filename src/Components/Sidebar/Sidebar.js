@@ -16,7 +16,8 @@ function Sidebar() {
             setauthenticated(false);
             navigate("/login");
         }
-        // esdivnt-disable-next-divne react-hooks/exhaustive-deps
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [authenticated]);
 
     const Logout = () => {
