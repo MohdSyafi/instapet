@@ -11,6 +11,16 @@ div.ProfileContainer{
     overflow-x: hidden;
     @include util.no-scroller;
 
+    div.loadingContainer{
+        height: 100%;
+        display: flex;
+        img.loading{
+            align-self: center;
+            height: 500px;
+            width: 500px;
+        }
+    }
+
     div.ProfileTop{
         padding: 18px;
         @include util.display-flex(row);

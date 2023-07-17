@@ -16,6 +16,16 @@
         @include util.display-flex(row);
         gap:300px;
 
+        div.loadingContainer{
+            height: 100%;
+            display: flex;
+            img.loading{
+                align-self: center;
+                height: 500px;
+                width: 500px;
+            }
+        }
+        
         div.AllPostsContainer{
             min-width: 470px;
             overflow: scroll;
